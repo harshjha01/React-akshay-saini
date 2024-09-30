@@ -1,0 +1,27 @@
+{
+  "name": "react-codes",
+  "version": "1.0.0",
+  "description": "learning react from akshay",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshjha01/React-akshay-saini.git"
+  },
+  "author": "Harsh jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshjha01/React-akshay-saini/issues"
+  },
+  "homepage": "https://github.com/harshjha01/React-akshay-saini#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
