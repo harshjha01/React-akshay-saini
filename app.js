@@ -11,5 +11,26 @@ const parent = React.createElement("div", { id: "parent" }, [
   ]),
 ]);
 
+//react fucntional componment
+
+const Headerfn = () => {
+  return (
+    <h1 id="head" className="Headfn">
+      hello i am a header form fucntional componment
+    </h1>
+  );
+};
+
+// react element
+const header = (
+  <h1 id="header" className="headclass">
+    Hello ji i am a header
+  </h1>
+);
+
+// console.log(parent);
+// console.log(<Headerfn />);
+// console.log(header);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<Headerfn />);
