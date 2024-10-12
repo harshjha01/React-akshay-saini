@@ -26,6 +26,9 @@
   cursor: pointer;
   color: blue;
 }
+.linksli {
+  text-decoration: none;
+}
 /* body */
 .rescontainer {
   /* border: 1px solid brown;
@@ -78,4 +81,16 @@
 }
 .top-res {
   margin: 10px 10px;
+}
+.reslink {
+  text-decoration: none;
+}
+.menu-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #3b3a3a;
 }

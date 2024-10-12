@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+import useOnlineUser from "../utils/useOnlineUser";
+
 const Header = () => {
+  const activestatus = useOnlineUser();
   return (
     <div className="header">
       <div className="logo">
@@ -10,9 +14,25 @@ const Header = () => {
       </div>
       <div className="links">
         <ul>
-          <li>home</li>
-          <li>about</li>
-          <li>connect us</li>
+          <li className="linksli">
+            Active stauts : {activestatus ? "🟢" : "🔴"}
+          </li>
+
+          <li>
+            <Link className="linksli" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="linksli" to="/about">
+              About
+            </Link>{" "}
+          </li>
+          <li>
+            <Link className="linksli" to="/contact">
+              Contact us
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

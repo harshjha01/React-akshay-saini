@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Rescard from "./Rescard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useOnlineUser from "../utils/useOnlineUser";
 const Body = () => {
   const apicall =
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -8,6 +10,7 @@ const Body = () => {
   const [restaurants, setrestaurants] = useState([]);
   const [filerrestaurants, setfilerrestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
+  const activestatus = useOnlineUser();
   const fetchdata = async () => {
     const data = await fetch(apicall);
     const datajson = await data.json();
@@ -24,6 +27,9 @@ const Body = () => {
   useEffect(() => {
     fetchdata();
   }, []);
+  if (activestatus == false) {
+    return <h1>Seems like youre not connected to internet</h1>;
+  }
   return restaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -69,7 +75,16 @@ const Body = () => {
       </div>
       <div className="rescontainer">
         {filerrestaurants.map((restaurant) => (
-          <Rescard key={restaurant.info.id} resdata={restaurant.info} />
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "#000",
+            }}
+            key={restaurant.info.id}
+            to={"/res/" + restaurant.info.id}
+          >
+            <Rescard resdata={restaurant.info} />
+          </Link>
         ))}
       </div>
     </div>
