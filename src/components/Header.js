@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import useOnlineUser from "../utils/useOnlineUser";
+import usercontext from "../utils/usercontext";
+import { useContext } from "react";
 
 const Header = () => {
   const activestatus = useOnlineUser();
@@ -32,6 +34,10 @@ const Header = () => {
             <Link className="linksli" to="/contact">
               Contact us
             </Link>
+          </li>
+          <li>
+            User: {useContext(usercontext).username}
+            {/* {console.log(useContext(usercontext).username)} */}
           </li>
         </ul>
       </div>

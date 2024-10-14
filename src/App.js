@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "../src/components/Body";
@@ -10,11 +10,15 @@ import Error from "./components/Error";
 import ResInfo from "./components/ResInfo";
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
+import usercontext from "./utils/usercontext";
 const App = () => {
+  const [user, setuser] = useState("harsh jha");
   return (
     <>
-      <Header></Header>
-      <Outlet />
+      <usercontext.Provider value={{ username: user, setuser }}>
+        <Header></Header>
+        <Outlet />
+      </usercontext.Provider>
     </>
   );
 };

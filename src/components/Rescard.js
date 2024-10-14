@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import usercontext from "../utils/usercontext";
+
 const Rescard = (props) => {
   const imglink =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
@@ -16,6 +19,7 @@ const Rescard = (props) => {
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating}⭐</h4>
       <h4>{deliveryTime}</h4>
+      <h4>{useContext(usercontext).username}</h4>
       {/* <h3>Harsh food</h3>
       <h4>Fast food, snacks</h4>
       <h4>4.4⭐</h4>
