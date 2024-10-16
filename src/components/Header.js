@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import useOnlineUser from "../utils/useOnlineUser";
 import usercontext from "../utils/usercontext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartitems = useSelector((state) => state.cart.items);
+  // console.log(cartitems);
+
   const activestatus = useOnlineUser();
   return (
     <div className="header">
@@ -33,6 +37,11 @@ const Header = () => {
           <li>
             <Link className="linksli" to="/contact">
               Contact us
+            </Link>
+          </li>
+          <li className="text-black font-bold">
+            <Link className="linksli" to="/cart">
+              Cart - ({cartitems.length} items)
             </Link>
           </li>
           <li>

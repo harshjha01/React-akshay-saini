@@ -11,14 +11,19 @@ import ResInfo from "./components/ResInfo";
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
 import usercontext from "./utils/usercontext";
+import { Provider } from "react-redux";
+import appstore from "./utils/appstore";
+import Cart from "./components/cart";
 const App = () => {
   const [user, setuser] = useState("harsh jha");
   return (
     <>
-      <usercontext.Provider value={{ username: user, setuser }}>
-        <Header></Header>
-        <Outlet />
-      </usercontext.Provider>
+      <Provider store={appstore}>
+        <usercontext.Provider value={{ username: user, setuser }}>
+          <Header></Header>
+          <Outlet />
+        </usercontext.Provider>
+      </Provider>
     </>
   );
 };
@@ -53,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/res/:resid",
         element: <ResInfo />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
